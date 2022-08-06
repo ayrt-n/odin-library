@@ -5,9 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <title>Library</title>
   </head>
   <body>
+    <!-- Library table -->
     <div class="container">
       <table class="table">
         <thead>
@@ -21,6 +23,49 @@
         <tbody id="library">
         </tbody>
       </table>
+
+      <!-- Book form button -->
+      <a class="button is-primary">Add book</a>
+
+      <!-- Book form -->
+      <div id="book-form" class="mt-5">
+        <div class="field">
+          <label for="title" class="label">Title</label>
+          <div class="control">
+            <input type="text" class="input" id="title">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="author" class="label">Author</label>
+          <div class="control">
+            <input type="text" class="input" id="author">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="pages" class="label">Number of pages</label>
+          <div class="control">
+            <input type="number" class="input" id="pages">
+          </div>
+        </div>
+
+        <div class="field mt-4">
+          <div class="label">
+            <p><strong>Have you read the book yet?</strong></p>
+          </div>
+          <div class="control">
+            <label class="radio">
+              <input type="radio" name="read" value="1">
+              Yes
+            </label>
+            <label class="radio">
+              <input type="radio" name="read" value="0">
+              No
+            </label>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="js/script.js"></script>
