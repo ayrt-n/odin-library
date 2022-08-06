@@ -1,0 +1,7 @@
+#book-form {
+  display: none;
+}
+
+#book-form.is-active {
+  display: block;
+}
