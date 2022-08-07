@@ -17,9 +17,8 @@ libraryTable.addEventListener("click", function(e) {
     } else {
       let book = myLibrary[index];
       book.toggleRead();
+      libraryTable.rows[index].cells[3].innerHTML = book.read
     }
-
-    reloadLibrary();
   }
 })
 
@@ -83,6 +82,7 @@ function addBookToTable(book, index) {
 // Delete book from library and table
 function deleteBook(index) {
   myLibrary.splice(index, 1);
+  reloadLibrary();
 }
 
 // Toggle display of new book form
