@@ -15,17 +15,25 @@ libraryTable.addEventListener("click", function(e) {
     if(e.target.innerHTML == "Delete") {
       deleteBook(index)
     } else {
-      console.log('yeah right...')
+      let book = myLibrary[index];
+      book.toggleRead();
     }
+
+    reloadLibrary();
   }
 })
 
-// Book constructor function 
+// Book Constructor Function
 function Book(title, author, pages, read) {
   this.title = title
   this.author = author
   this.pages = pages
   this.read = read ? "Yes" : "No"
+}
+
+// Book method to toggle read status
+Book.prototype.toggleRead = function() {
+  this.read = this.read == "Yes" ? "No" : "Yes"
 }
 
 // Add a book to myLibrary
@@ -75,7 +83,6 @@ function addBookToTable(book, index) {
 // Delete book from library and table
 function deleteBook(index) {
   myLibrary.splice(index, 1);
-  reloadLibrary();
 }
 
 // Toggle display of new book form
@@ -86,5 +93,5 @@ function toggleBookForm() {
 
 // Testing code
 addBookToLibrary("Catcher and the Raisin", "Bobby Dumpins", 230, 0)
-addBookToLibrary("Clockwork Doorhinge", "Amy Pancakes", 700, 1)
+addBookToLibrary("Clockwork Doorhinge", "Amy Pancakes", 700, 0)
 displayLibrary();
