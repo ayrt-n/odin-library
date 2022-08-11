@@ -22,18 +22,33 @@ libraryTable.addEventListener("click", function(e) {
   }
 })
 
-// Book Constructor Function
-function Book(title, author, pages, read) {
-  this.title = title
-  this.author = author
-  this.pages = pages
-  this.read = read ? "Yes" : "No"
+// Book class implementation of library
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read ? "Yes" : "No"
+  }
+
+  toggleRead() {
+    this.read = this.read == "Yes" ? "No" : "Yes";
+  }
 }
 
-// Book method to toggle read status
-Book.prototype.toggleRead = function() {
-  this.read = this.read == "Yes" ? "No" : "Yes"
-}
+// // Old constructor function implementation of library
+// // Book Constructor Function
+// function Book(title, author, pages, read) {
+//   this.title = title
+//   this.author = author
+//   this.pages = pages
+//   this.read = read ? "Yes" : "No"
+// }
+
+// // Book method to toggle read status
+// Book.prototype.toggleRead = function() {
+//   this.read = this.read == "Yes" ? "No" : "Yes"
+// }
 
 // Add a book to myLibrary
 function addBookToLibrary(title, author, pages, read) {
