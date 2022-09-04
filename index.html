@@ -33,25 +33,28 @@
       <a class="button is-primary" id="new-book-button">New book</a>
 
       <!-- Book form -->
-      <form id="book-form" class="mt-5">
+      <form id="book-form" class="mt-5" novalidate>
         <div class="field">
           <label for="title" class="label">Title</label>
           <div class="control">
-            <input type="text" class="input" id="title" name="title">
+            <input type="text" class="input" id="title" name="title" required>
+            <span class="error" aria-live="politce"></span>
           </div>
         </div>
 
         <div class="field">
           <label for="author" class="label">Author</label>
           <div class="control">
-            <input type="text" class="input" id="author">
+            <input type="text" class="input" id="author" required>
+            <span class="error" aria-live="politce"></span>
           </div>
         </div>
 
         <div class="field">
           <label for="pages" class="label">Number of pages</label>
           <div class="control">
-            <input type="number" class="input" id="pages">
+            <input type="number" class="input" id="pages" required min="1">
+            <span class="error" aria-live="politce"></span>
           </div>
         </div>
 
@@ -61,19 +64,21 @@
           </div>
           <div class="control">
             <label class="radio">
-              <input type="radio" name="read" value="1">
+              <input type="radio" name="read" value="1" id="read" required>
               Yes
             </label>
             <label class="radio">
-              <input type="radio" name="read" value="0">
+              <input type="radio" name="read" value="0" required>
               No
             </label>
+            <br>
+            <span class="error" aria-live="politce" id="radio-error"></span>
           </div>
         </div>
 
         <div class="field">
           <div class="control">
-            <a class="button" id="add-book-button">Add book</a>
+            <button class="button" id="add-book-button">Add book</button>
           </div>
         </div>
       </div>
