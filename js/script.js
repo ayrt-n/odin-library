@@ -3,11 +3,9 @@ let myLibrary = [];
 const libraryTable = document.getElementById("library");
 const newBookButton = document.getElementById("new-book-button");
 const newBookForm = document.getElementById("book-form");
-const addBookButton = document.getElementById("add-book-button")
 
 // Event Listeners
 newBookButton.addEventListener("click", toggleBookForm);
-addBookButton.addEventListener("click", submitNewBook);
 libraryTable.addEventListener("click", function(e) {
   if(e.target && e.target.nodeName == "A") {
     index = e.target.getAttribute("data-index")
@@ -105,6 +103,82 @@ function toggleBookForm() {
   newBookForm.classList.toggle("is-active");
 }
 
+// Form Validation
+const title = document.getElementById('title');
+const titleError = document.querySelector("#title + span.error");
+const author = document.getElementById('author');
+const authorError = document.querySelector("#author + span.error");
+const pages = document.getElementById('pages');
+const pagesError = document.querySelector("#pages + span.error");
+const read = document.getElementById('read');
+const readError = document.getElementById("radio-error");
+
+const resetErrorMessages = () => {
+  [titleError, authorError, pagesError, readError].forEach((errorSpan) => {
+    errorSpan.innerHTML = '';
+  });
+};
+
+title.addEventListener('input', (e) => {
+  if (title.validity.valid) {
+    titleError.innerHTML = '';
+  } else {
+    titleError.innerHTML = title.validationMessage;
+  }
+});
+
+author.addEventListener('input', (e) => {
+  if (author.validity.valid) {
+    authorError.innerHTML = '';
+  } else {
+    authorError.innerHTML = author.validationMessage;
+  }
+});
+
+pages.addEventListener('input', (e) => {
+  if (pages.validity.valid) {
+    pagesError.innerHTML = '';
+  } else {
+    pagesError.innerHTML = pages.validationMessage;
+  }
+});
+
+read.addEventListener('input', (e) => {
+  if (read.validity.valid) {
+    readError.innerHTML = '';
+  } else {
+    readError.innerHTML = read.validationMessage;
+  }
+});
+
+newBookForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  resetErrorMessages();
+  let isValid = 1
+
+  if (!title.validity.valid) {
+    titleError.innerHTML = title.validationMessage;
+    isValid = 0;
+  }
+  if (!author.validity.valid) {
+    authorError.innerHTML = author.validationMessage;
+    isValid = 0;
+  }
+  if (!pages.validity.valid) {
+    pagesError.innerHTML = pages.validationMessage;
+    isValid = 0;
+  }
+  if (!read.validity.valid) {
+    readError.innerHTML = read.validationMessage;
+    isValid = 0;
+  }
+
+  if (isValid) {
+    submitNewBook();
+  }
+});
+
+console.log(newBookForm.validity)
 
 // Testing code
 addBookToLibrary("Catcher and the Raisin", "Bobby Dumpins", 230, 0)
