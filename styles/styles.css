@@ -5,3 +5,8 @@
 #book-form.is-active {
   display: block;
 }
+
+.error {
+  color: red;
+  font-size: 0.75rem;
+}
