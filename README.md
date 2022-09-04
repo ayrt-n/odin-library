@@ -14,4 +14,6 @@ As of now, books are not actually saved in localStorage, but I believe this is a
 
 ## Updates
 
-Since the original lesson, we received a new assignment to refactor our existing code to use classes as opposed to the constructor function originally used in creating Book objects.
+August 11, 2022: We received a new assignment to refactor our existing code to use classes as opposed to the constructor function originally used in creating Book objects.
+
+September 4, 2022: We received a new assignment to refactor the program and implement simple form validation using the contraint validation API. Form validation with custom error messages has now been implemented to the new book form!
